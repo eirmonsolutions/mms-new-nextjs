@@ -3,9 +3,27 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-
+var cors = require('cors')
+app.use(cors())
 const app = express();
 app.use(bodyParser.json());
+
+const corsOptions  = [
+    'http://localhost:3000',
+    'http://192.168.1.8:3000/'
+];
+
+// CORS Configuration
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // Allow cookies to be sent
+}));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail', 
@@ -15,7 +33,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post('/send-email', (req, res) => {
+app.post('/send-email', cors(corsOptions),  (req, res) => {
     const { firstName, phone, email, message } = req.body;
 
     const mailOptions = {
