@@ -15,7 +15,7 @@
     display: block;
     position: relative;
     width: 100%;
-}
+  }
   ul.navbar-nav li.nav-item a.nav-link {
     display: flex;
     align-items: center;
@@ -33,5 +33,63 @@
   li.nav-item.dropdown ul.dropdown {
     padding-left: 0;
     background-color: #fff;
+  }
+
+  .banner-content h1 {
+    font-size: 70px;
+  }
+
+  section.banner-area {
+    height: 350px;
+    padding: 80px 0;
+  }
+
+  section.about-area {
+    background-position: left;
+    height: 580px;
+    padding: 50px 0;
+  }
+
+  .heading-area h3 {
+    font-size: 40px;
+  }
+
+  .about-content h3 {
+    font-size: 50px;
+  }
+
+  .featured-box {
+    border-right: none;
+  }
+
+  section.features-area {
+    background-image: linear-gradient(90deg, #c2884f00 -50%, #fb7829 80%),
+      url(../assets/images/features-bg.jpg);
+    background-position: left;
+    height: 600px;
+  }
+
+  .features-box h3 {
+    font-size: 48px;
+  }
+
+  .appointment-img {
+    margin: -115px 0px 10px 0;
+  }
+
+  .appointment-img img {
+    border-radius: 5px;
+  }
+
+  .appointment-content h3 {
+    font-size: 38px;
+  }
+
+  .footer-box p {
+    font-size: 20px;
+  }
+
+  .footer-box2 {
+    margin: 20px 0;
   }
 }

@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 const transporter = nodemailer.createTransport({
     service: 'gmail', 
     auth: {
-        user: 'vishaleirmon15896@gmail.com', // Replace with your email
-        pass: 'vpsruvnpklazwbim' // Replace with your email password or app password
+        user: 'vishaleirmon15896@gmail.com', 
+        pass: 'vpsruvnpklazwbim' 
     }
 });
 
-app.post('https://mms-new-nextjs.onrender.com/send-email', (req, res) => {
+app.post('/send-email', (req, res) => {
     const { firstName, phone, email, message } = req.body;
 
     const mailOptions = {

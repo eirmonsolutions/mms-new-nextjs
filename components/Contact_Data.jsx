@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FaLocationDot, FaPhone, FaEnvelope } from "react-icons/fa6";
 import Link from "next/link";
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2'; 
 
 const Contact_Data = () => {
     const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Contact_Data = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('/send-email', {
+            const response = await fetch('http://localhost:5000/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ const Contact_Data = () => {
                                     <h3>Reservations</h3>
                                     <div className="contact-tf_info">
                                         <span className='icon'><FaEnvelope /></span>
-                                        contact@info.com
+                                        info@mmsliquor.com
                                     </div>
                                 </div>
 

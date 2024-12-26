@@ -554,13 +554,6 @@ section.tf_about {
     padding: 0 30px;
 }
 
-.about-content h3 {
-    color: #fb7829;
-    font-family: "Kalam", cursive;
-    font-size: 80px;
-    font-weight: 600;
-    margin-bottom: 0;
-}
 
 .about-content h5 {
     text-align: justify;
