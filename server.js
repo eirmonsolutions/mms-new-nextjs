@@ -1,10 +1,11 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-app.use(bodyParser.json());
+
+// Middleware to parse JSON requests
+app.use(express.json());
 
 // Allowed origins for CORS
 const allowedOrigins = [
@@ -21,47 +22,51 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true, // Allow cookies to be sent
+    credentials: true,
 }));
 
 // Nodemailer transporter configuration
 const transporter = nodemailer.createTransport({
-    service: 'gmail', 
+    service: 'gmail',
     auth: {
-        user: 'vishaleirmon15896@gmail.com', 
-        pass: 'vpsruvnpklazwbim' 
-    }
+        user: 'vishaleirmon15896@gmail.com',
+        pass: 'vpsruvnpklazwbim',
+    },
 });
 
 // Route for sending email
-app.post('/send-email', (req, res) => {
-    const { name, phone, email, message } = req.body;
+app.post('/send-email', async (req, res) => {
+    try {
+        const { name, phone, email, message } = req.body;
 
-    if (!name || !phone || !email || !message) {
-        return res.status(400).json({ success: false, message: 'All fields are required.' });
-    }
-
-    const mailOptions = {
-        from: 'vishaleirmon15896@gmail.com',
-        to: 'vishaleirmon15896@gmail.com',
-        subject: 'New Contact Form Submission',
-        text: `
-            You have received a new message:
-            Name: ${name}
-            Phone: ${phone}
-            Email: ${email}
-            Message: ${message}
-        `,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error('Error sending email:', error);
-            return res.status(500).json({ success: false, message: 'Failed to send email.' });
+        // Validate input
+        if (!name || !phone || !email || !message) {
+            return res.status(400).json({ success: false, message: 'All fields are required.' });
         }
+
+        // Configure email options
+        const mailOptions = {
+            from: 'vishaleirmon15896@gmail.com',
+            to: 'vishaleirmon15896@gmail.com',
+            subject: 'New Contact Form Submission',
+            text: `
+                You have received a new message:
+                Name: ${name}
+                Phone: ${phone}
+                Email: ${email}
+                Message: ${message}
+            `,
+        };
+
+        // Send email
+        const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
         return res.status(200).json({ success: true, message: 'Email sent successfully.' });
-    });
+
+    } catch (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ success: false, message: 'Failed to send email.' });
+    }
 });
 
 // Start server

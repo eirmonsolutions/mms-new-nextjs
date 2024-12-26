@@ -28,14 +28,14 @@ const Contact_Data = () => {
             const response = await fetch('https://mms-new-nextjs.onrender.com/send-email', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData), // Serialize form data as JSON
             });
 
-            const data = await response.json();
+            const data = await response.json(); // Parse the response JSON
 
-            if (data.success) {
+            if (response.ok) {
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your message has been sent successfully.',
@@ -51,7 +51,7 @@ const Contact_Data = () => {
             } else {
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Something went wrong, please try again later.',
+                    text: data.message || 'Something went wrong, please try again later.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
