@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post('/send-email', (req, res) => {
+app.post('https://mms-new-nextjs.onrender.com/send-email', (req, res) => {
     const { firstName, phone, email, message } = req.body;
 
     const mailOptions = {
