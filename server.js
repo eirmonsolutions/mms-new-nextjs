@@ -37,10 +37,10 @@ const transporter = nodemailer.createTransport({
 // Route for sending email
 app.post('/send-email', async (req, res) => {
     try {
-        const { name, phone, email, message } = req.body;
+        const { firstName, phone, email, message } = req.body;
 
         // Validate input
-        if (!name || !phone || !email || !message) {
+        if (!firstName || !phone || !email || !message) {
             return res.status(400).json({ success: false, message: 'All fields are required.' });
         }
 
@@ -51,7 +51,7 @@ app.post('/send-email', async (req, res) => {
             subject: 'New Contact Form Submission',
             text: `
                 You have received a new message:
-                Name: ${name}
+                Name: ${firstName}
                 Phone: ${phone}
                 Email: ${email}
                 Message: ${message}
