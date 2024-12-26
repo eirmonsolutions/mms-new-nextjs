@@ -11,6 +11,8 @@ app.use(express.json());
 const allowedOrigins = [
     'http://localhost:3000',
     'http://192.168.1.8:3000',
+    'https://mmsliquor.com/',
+    
 ];
 
 // CORS Configuration
@@ -30,7 +32,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'vishaleirmon15896@gmail.com',
-        pass: 'qecv dtxt gols fvrx',
+        pass: 'qecv-dtxt-gols-fvrx',
     },
 });
 
