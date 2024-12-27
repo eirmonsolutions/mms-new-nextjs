@@ -38,7 +38,7 @@ const Featured_Menu = () => {
                     </div>
                     <div className="row">
                         {featuredItems.map((item) => (
-                            <div key={item.id} className="col-md-3">
+                            <div key={item.id} className="col-md-6 col-lg-3">
                                 <div className="featured-box">
                                     <img src={item.image} alt={item.title} loading="lazy" />
                                     <div className="featured-content">

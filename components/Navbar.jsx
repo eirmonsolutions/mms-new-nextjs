@@ -38,7 +38,7 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              <div className="col-md-12 col-lg-6">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-nav">
                     <li className="nav-item">

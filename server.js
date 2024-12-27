@@ -48,8 +48,8 @@ app.post('/send-email', async (req, res) => {
 
         // Configure email options
         const mailOptions = {
-            from: 'vishaleirmon15896@gmail.com',
-            to: 'vishaleirmon15896@gmail.com',
+            from: 'info@mmsliquor.com',
+            to: 'info@mmsliquor.com',
             subject: 'New Contact Form Submission',
             text: `
                 You have received a new message:

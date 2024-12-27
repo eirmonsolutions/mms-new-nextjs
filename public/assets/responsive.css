@@ -92,4 +92,72 @@
   .footer-box2 {
     margin: 20px 0;
   }
+
+  ul.menu-item-box li {
+    flex: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  ul.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+  }
+  ul.navbar-nav li.nav-item a.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  ul.navbar-nav > li.nav-item > ul.dropdown-menu.show {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  ul.navbar-nav > li.nav-item > ul.dropdown-menu {
+    transform: translateY(0);
+    display: none;
+  }
+
+  ul.navbar-nav li.nav-item {
+    margin: 6px 10px;
+  }
+
+  .about-content h3 {
+    font-size: 40px;
+  }
+
+  .about-content p {
+    line-height: 28px;
+  }
+
+  section.about-area {
+    padding: 90px 0;
+  }
+
+  .featured-box {
+    border-right: none;
+  }
+
+  .features-box h3 {
+    font-size: 50px;
+  }
+
+  .appointment-content h3 {
+    font-size: 30px;
+  }
+
+  .appointment-img {
+    margin: -75px 0 -50px -130px;
+  }
+
+  ul.menu-item-box li {
+    flex: 43%;
+  }
+  .contact-box {
+    margin-bottom: 20px;
+  }
 }
