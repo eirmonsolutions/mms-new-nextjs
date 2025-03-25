@@ -11,7 +11,7 @@ app.use(express.json());
 const allowedOrigins = [
     'http://localhost:3000',
     'http://192.168.1.8:3000',
-    'https://mmsliquor.com/',
+    'https://mmsliquor.com',
     
 ];
 
